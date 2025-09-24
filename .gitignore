@@ -1,0 +1,27 @@
+# Unity GitIgnore
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Pp]rojects/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
+
+# Visual Studio
+/[Vv]s/
+/[Vv]s[Vv]S/
+/[Ee]xported[Oo]bj/
+/.vs/
+
+# Arquivos de projeto
+/*.csproj
+/*.unityproj
+/*.sln
+/*.suo
+/*.user
+/*.userprefs
+
+# Sistema
+/.DS_Store
+/Thumbs.db
