@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class enemyLife : MonoBehaviour
+{
+    //float life
+    public int actualLife;
+    public int maxLife;
+    private Main_Animation anim;
+    [SerializeField] private ParticleSystem shine_part;
+    private void Start()
+    {
+        actualLife = maxLife;
+        anim = FindObjectOfType<Main_Animation>();
+        if (actualLife >= maxLife / 4) shine_part.Stop();
+    }
+    public void TakeDamage(int value)
+    {
+        actualLife -= value;
+        anim.X_anim();
+        if (actualLife <= 0) {
+            actualLife = 0;
+            if (gameObject.transform.parent != null) {//caso o componente life n�o esteja no objeto que queira destruir em si
+                Transform parent = gameObject.transform.parent; Die(parent.gameObject);
+            }
+            else
+                Die(gameObject);
+        }
+        shines(can_finalizate());
+    }
+    private void Die(GameObject objeto) {
+        Destroy(objeto);
+    }
+    private bool can_finalizate() {
+        if(actualLife <= maxLife / 4) return true;
+        return false;
+    }
+
+    private void shines(bool activate) {
+        if(activate)
+            shine_part.Play();
+    }
+
+}
