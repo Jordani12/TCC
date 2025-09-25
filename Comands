@@ -1,0 +1,13 @@
+Fluxo de trabalho correto:
+bash
+# Sempre trabalhe na sua branch
+git checkout kaua
+
+# Antes de começar, atualize com a master
+git pull origin master
+
+# Faça suas alterações no Unity...
+# Depois commit e push
+git add .
+git commit -m "Minhas alterações"
+git push origin kaua
