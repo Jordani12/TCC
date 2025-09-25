@@ -88,7 +88,8 @@ public class MenuPause : MonoBehaviour
         if (press_B && can_change_canvas)
         {
             player.canDash = !player.canDash;
-            gun.currentGun.canShoot = !gun.currentGun.canShoot;
+            if(gun.currentGun.passedTutorial)
+                gun.currentGun.canShoot = !gun.currentGun.canShoot;
             timeChange();
             SetPauseMenuVisibility(isPaused);
             canva_controller();
@@ -163,7 +164,8 @@ public class MenuPause : MonoBehaviour
         timeChange();
         toggle_cursor();/*se no futuro não funcionar, use isto: Cursor.lockState = CursorLockMode.Locked;Cursor.visible = false;*/
         player.canDash = !player.canDash;
-        gun.currentGun.canShoot = true;
+        if (gun.currentGun.passedTutorial)
+            gun.currentGun.canShoot = true;
     }
 
     private void timeChange()
