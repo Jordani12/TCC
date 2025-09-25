@@ -1,5 +1,11 @@
 Fluxo de trabalho correto:
+
 bash
+
+# Clonar o repo
+cd (pasta pra armazenar)
+git clone https://github.com/Jordani12/TCC.git (no master)
+
 # Sempre trabalhe na sua branch
 git checkout kaua
 
