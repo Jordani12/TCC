@@ -19,8 +19,13 @@ MonoBehaviour:
   dash_in: 113
   finalization_in: 103
   interact_in: 101
+  recharging: 114
+  aim: 1
+  change1: 49
+  change2: 50
+  change3: 51
   fov: 70
   sensitivityX: 400
   sensitivityY: 300
-  aim_sensitivityX: 50
-  aim_sensitivityY: 100
+  aim_sensitivityX: 100
+  aim_sensitivityY: 50
