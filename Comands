@@ -10,7 +10,7 @@ git clone https://github.com/Jordani12/TCC.git (no master)
 git checkout kaua
 
 # Antes de começar, atualize com a master
-git pull origin master
+git pull origin main
 
 # Faça suas alterações no Unity...
 # Depois commit e push
