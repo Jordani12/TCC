@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398e86ec483f1834c82f8141783df6bc, type: 3}
+  m_Name: InputData
+  m_EditorClassIdentifier: 
+  forward_in: 119
+  backward_in: 115
+  left_in: 97
+  right_in: 100
+  dash_in: 113
+  finalization_in: 103
+  interact_in: 101
+  recharging: 114
+  aim: 1
+  change1: 49
+  change2: 50
+  change3: 51
+  fov: 70
+  sensitivityX: 400
+  sensitivityY: 300
+  aim_sensitivityX: 100
+  aim_sensitivityY: 50
