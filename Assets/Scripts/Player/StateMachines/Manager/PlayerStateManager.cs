@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 public enum PlayerState { Idle, Dash, Walk, Jump, Finalizate }
 
@@ -75,8 +76,6 @@ public class PlayerStateManager : MonoBehaviour
     {
         UpdateState();
         HandleStateTransition();
-        Debug.Log($"Is Grounded: {isGrounded}");
-        Debug.Log($"Is Ramp: {isOnRamp}");
     }
 
     private void FixedUpdate()
@@ -120,24 +119,41 @@ public class PlayerStateManager : MonoBehaviour
 
     private void ramp_ground_Verification()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, 1.1f, Ground))
-        {
-            isOnRamp = false;
-            isGrounded = true;
-        }
+        float checkDistance = 1.3f;
+        float sphereRadius = 0.4f;
 
-        else if (Physics.Raycast(transform.position, Vector3.down, 1.5f, Ramp))
+        bool groundHit = Physics.SphereCast(transform.position, sphereRadius,
+            Vector3.down, out RaycastHit groundHitInfo, checkDistance, Ground);
+
+        bool rampHit = Physics.SphereCast(transform.position, sphereRadius,
+            Vector3.down, out RaycastHit rampHitInfo, checkDistance, Ramp);
+
+        isGrounded = groundHit || rampHit;
+        isOnRamp = rampHit && !groundHit;
+        /*isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, Ground);
+        isOnRamp = isGrounded && Physics.Raycast(transform.position, Vector3.down, 1.5f, Ramp);*/
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Visualizar raycast/spherecast de ground detection
+        
+        if (isOnRamp)
         {
-            isGrounded = true;
-            isOnRamp = true;
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position + Vector3.down * 0.65f, 0.4f);
+        }
+        else if (isGrounded)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(transform.position, Vector3.down * 1.3f);
         }
         else
         {
-            isOnRamp = false;
-            isGrounded = false;
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(transform.position, Vector3.down * 1.3f);
         }
-        /*isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, Ground);
-        isOnRamp = isGrounded && Physics.Raycast(transform.position, Vector3.down, 1.5f, Ramp);*/
+        
     }
 
     private void changeGravity()
