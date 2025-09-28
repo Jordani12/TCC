@@ -73,13 +73,15 @@ public class PlayerStateManager : MonoBehaviour
 
     void Update()
     {
-        CheckGround();
-        UpdateState();     
-        HandleStateTransition(); 
+        UpdateState();
+        HandleStateTransition();
+        Debug.Log($"Is Grounded: {isGrounded}");
+        Debug.Log($"Is Ramp: {isOnRamp}");
     }
 
     private void FixedUpdate()
     {
+        CheckGround();
         FixedUpdateState();
     }
 
@@ -118,8 +120,24 @@ public class PlayerStateManager : MonoBehaviour
 
     private void ramp_ground_Verification()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, Ground);
-        isOnRamp = isGrounded && Physics.Raycast(transform.position, Vector3.down, 1.5f, Ramp);
+        if (Physics.Raycast(transform.position, Vector3.down, 1.1f, Ground))
+        {
+            isOnRamp = false;
+            isGrounded = true;
+        }
+
+        else if (Physics.Raycast(transform.position, Vector3.down, 1.5f, Ramp))
+        {
+            isGrounded = true;
+            isOnRamp = true;
+        }
+        else
+        {
+            isOnRamp = false;
+            isGrounded = false;
+        }
+        /*isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, Ground);
+        isOnRamp = isGrounded && Physics.Raycast(transform.position, Vector3.down, 1.5f, Ramp);*/
     }
 
     private void changeGravity()

@@ -35,7 +35,10 @@ public class AirPhysics : MonoBehaviour
 
     private void floorExit(){
         if (playerManager.isOnRamp)
+        {
             transform.position += Vector3.up * .3f;
+        }
+            
         else
             transform.position += Vector3.up * .1f;
     }
