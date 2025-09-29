@@ -1,4 +1,7 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 public enum PlayerState { Idle, Dash, Walk, Jump, Finalizate }
 
@@ -12,9 +15,8 @@ public class PlayerStateManager : MonoBehaviour
 
     public SO_SaveInputs inputs_SO;
 
-    [Header("Layers")]
-    public LayerMask Ground;
-    public LayerMask Ramp;
+    [SerializeField] private LayerMask Ground;
+    [SerializeField] private LayerMask Ramp;
 
     [Header("Configurações de Movimento")]
     public Transform orientation;
@@ -40,6 +42,8 @@ public class PlayerStateManager : MonoBehaviour
     public KeyCode right_in => inputs_SO.right_in;
     public KeyCode dash_in => inputs_SO.dash_in;
     public KeyCode finalization_in => inputs_SO.finalization_in;
+
+    private bool canCheckGround = true;
 
     private void Awake()
     {
@@ -75,8 +79,6 @@ public class PlayerStateManager : MonoBehaviour
     {
         UpdateState();
         HandleStateTransition();
-        Debug.Log($"Is Grounded: {isGrounded}");
-        Debug.Log($"Is Ramp: {isOnRamp}");
     }
 
     private void FixedUpdate()
@@ -102,20 +104,27 @@ public class PlayerStateManager : MonoBehaviour
         GetCurrentState().EnterState(this);
     }
 
-    public bool IsInState(PlayerState state)
-    {
-        return currentStateType == state;
-    }
+    public bool IsInState(PlayerState state) { return currentStateType == state; }
 
     private IPlayerState GetCurrentState() => states[(int)currentStateType];
 
+    public IEnumerator release_checking_ground() {
+        canCheckGround = false;
+        isGrounded = false;
+        isOnRamp = false;
+        yield return new WaitForSeconds(.3f);
+        canCheckGround = true;
+    }
+
     public void CheckGround()
     {
-        ramp_ground_Verification();
-
         changeGravity();
 
         canJump = isGrounded && !isDashing;
+
+        if (!canCheckGround) return;
+
+        ramp_ground_Verification();
     }
 
     private void ramp_ground_Verification()
@@ -126,7 +135,7 @@ public class PlayerStateManager : MonoBehaviour
             isGrounded = true;
         }
 
-        else if (Physics.Raycast(transform.position, Vector3.down, 1.5f, Ramp))
+        else if (Physics.Raycast(transform.position, Vector3.down, 1.3f, Ramp))
         {
             isGrounded = true;
             isOnRamp = true;
@@ -136,16 +145,32 @@ public class PlayerStateManager : MonoBehaviour
             isOnRamp = false;
             isGrounded = false;
         }
-        /*isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, Ground);
-        isOnRamp = isGrounded && Physics.Raycast(transform.position, Vector3.down, 1.5f, Ramp);*/
+    }
+
+
+    private void OnDrawGizmos()
+    {        
+        if (isOnRamp)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawRay(transform.position, Vector3.down * 1.3f);
+        }
+        else if (isGrounded)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(transform.position, Vector3.down * 1.1f);
+        }
+        else
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(transform.position, Vector3.down * 1.3f);
+        }
+        
     }
 
     private void changeGravity()
     {
-        if (isGrounded)
-            rb.useGravity = false;
-        else
-            rb.useGravity = true;
+        rb.useGravity = !isGrounded;
     }
 
     public Vector3 GetMovementInput()
