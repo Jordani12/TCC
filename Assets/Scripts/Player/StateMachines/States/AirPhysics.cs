@@ -15,7 +15,6 @@ public class AirPhysics : MonoBehaviour
     [SerializeField, Range(0f, 5f)] private float upwardMultiplier = 1.7f;
 
     private float defaultGravityScale = 1f;
-    private bool gravityAppliedThisFrame = false;
 
     [HideInInspector] public bool isJumping;
     private void Awake()
@@ -26,14 +25,11 @@ public class AirPhysics : MonoBehaviour
     private bool _isGrounded => playerManager.isGrounded;
 
     public void Jump(){
-        if (!playerManager.isGrounded) return;
-
         floorExit();
 
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
-        gravityAppliedThisFrame = false;
+        StartCoroutine(playerManager.release_checking_ground());
     }
 
     private void floorExit(){
@@ -43,31 +39,24 @@ public class AirPhysics : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_isGrounded && !gravityAppliedThisFrame)
-        {
-            GravityController();
-            gravityAppliedThisFrame = true;
-        }
-        else if (_isGrounded)
-        {
-            gravityAppliedThisFrame = false;
-        }
+        GravityController();
     }
 
     private void GravityController()
     {
+        if (_isGrounded) return;
         float gravityMultiplier;
         float currentYVelocity = rb.velocity.y;
 
-        if (currentYVelocity > 0.1) // Subindo
+        if (currentYVelocity > 0 ) // Subindo
             gravityMultiplier = upwardMultiplier;
-        else if (currentYVelocity < -0.1) // Descendo
+        else if (currentYVelocity < 0) // Descendo
             gravityMultiplier = downwardMultiplier;
         else // Neutro
             gravityMultiplier = defaultGravityScale;
 
-        //apply custom gravity
         Vector3 gravity = Physics.gravity * gravityMultiplier * Time.fixedDeltaTime;
         rb.velocity += gravity;
-    }
+        //rb.AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
+    }    
 }
