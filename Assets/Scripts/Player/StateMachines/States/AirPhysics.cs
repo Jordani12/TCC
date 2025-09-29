@@ -25,44 +25,38 @@ public class AirPhysics : MonoBehaviour
     private bool _isGrounded => playerManager.isGrounded;
 
     public void Jump(){
-        if (!playerManager.isGrounded) return;
-
         floorExit();
 
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        StartCoroutine(playerManager.release_checking_ground());
     }
 
     private void floorExit(){
-        if (playerManager.isOnRamp)
-        {
-            transform.position += Vector3.up * .3f;
-        }
-            
-        else
-            transform.position += Vector3.up * .1f;
+        float offset = playerManager.isOnRamp ? 0.3f : 0.1f;
+        transform.position += Vector3.up * offset;
     }
 
     private void FixedUpdate()
     {
-        if (!_isGrounded)
-        {
-            GravityController();
-        }
+        GravityController();
     }
 
     private void GravityController()
     {
+        if (_isGrounded) return;
         float gravityMultiplier;
+        float currentYVelocity = rb.velocity.y;
 
-        if (rb.velocity.y > 0) // Subindo
+        if (currentYVelocity > 0 ) // Subindo
             gravityMultiplier = upwardMultiplier;
-        else if (rb.velocity.y < 0) // Descendo
+        else if (currentYVelocity < 0) // Descendo
             gravityMultiplier = downwardMultiplier;
         else // Neutro
             gravityMultiplier = defaultGravityScale;
 
-        //apply custom gravity
-        rb.AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
-    }
+        Vector3 gravity = Physics.gravity * gravityMultiplier * Time.fixedDeltaTime;
+        rb.velocity += gravity;
+        //rb.AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
+    }    
 }
