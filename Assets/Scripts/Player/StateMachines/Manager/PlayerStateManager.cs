@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -13,9 +15,8 @@ public class PlayerStateManager : MonoBehaviour
 
     public SO_SaveInputs inputs_SO;
 
-    [Header("Layers")]
-    public LayerMask Ground;
-    public LayerMask Ramp;
+    [SerializeField] private LayerMask Ground;
+    [SerializeField] private LayerMask Ramp;
 
     [Header("Configurações de Movimento")]
     public Transform orientation;
@@ -41,6 +42,8 @@ public class PlayerStateManager : MonoBehaviour
     public KeyCode right_in => inputs_SO.right_in;
     public KeyCode dash_in => inputs_SO.dash_in;
     public KeyCode finalization_in => inputs_SO.finalization_in;
+
+    private bool canCheckGround = true;
 
     private void Awake()
     {
@@ -101,52 +104,61 @@ public class PlayerStateManager : MonoBehaviour
         GetCurrentState().EnterState(this);
     }
 
-    public bool IsInState(PlayerState state)
-    {
-        return currentStateType == state;
-    }
+    public bool IsInState(PlayerState state) { return currentStateType == state; }
 
     private IPlayerState GetCurrentState() => states[(int)currentStateType];
 
+    public IEnumerator release_checking_ground() {
+        canCheckGround = false;
+        isGrounded = false;
+        isOnRamp = false;
+        yield return new WaitForSeconds(.3f);
+        canCheckGround = true;
+    }
+
     public void CheckGround()
     {
-        ramp_ground_Verification();
-
         changeGravity();
 
         canJump = isGrounded && !isDashing;
+
+        if (!canCheckGround) return;
+
+        ramp_ground_Verification();
     }
 
     private void ramp_ground_Verification()
     {
-        float checkDistance = 1.3f;
-        float sphereRadius = 0.4f;
+        if (Physics.Raycast(transform.position, Vector3.down, 1.1f, Ground))
+        {
+            isOnRamp = false;
+            isGrounded = true;
+        }
 
-        bool groundHit = Physics.SphereCast(transform.position, sphereRadius,
-            Vector3.down, out RaycastHit groundHitInfo, checkDistance, Ground);
-
-        bool rampHit = Physics.SphereCast(transform.position, sphereRadius,
-            Vector3.down, out RaycastHit rampHitInfo, checkDistance, Ramp);
-
-        isGrounded = groundHit || rampHit;
-        isOnRamp = rampHit && !groundHit;
-        /*isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, Ground);
-        isOnRamp = isGrounded && Physics.Raycast(transform.position, Vector3.down, 1.5f, Ramp);*/
+        else if (Physics.Raycast(transform.position, Vector3.down, 1.3f, Ramp))
+        {
+            isGrounded = true;
+            isOnRamp = true;
+        }
+        else
+        {
+            isOnRamp = false;
+            isGrounded = false;
+        }
     }
 
+
     private void OnDrawGizmos()
-    {
-        // Visualizar raycast/spherecast de ground detection
-        
+    {        
         if (isOnRamp)
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position + Vector3.down * 0.65f, 0.4f);
+            Gizmos.DrawRay(transform.position, Vector3.down * 1.3f);
         }
         else if (isGrounded)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawRay(transform.position, Vector3.down * 1.3f);
+            Gizmos.DrawRay(transform.position, Vector3.down * 1.1f);
         }
         else
         {
@@ -158,10 +170,7 @@ public class PlayerStateManager : MonoBehaviour
 
     private void changeGravity()
     {
-        if (isGrounded)
-            rb.useGravity = false;
-        else
-            rb.useGravity = true;
+        rb.useGravity = !isGrounded;
     }
 
     public Vector3 GetMovementInput()
