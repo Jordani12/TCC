@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class AirPhysics : MonoBehaviour
@@ -17,6 +18,10 @@ public class AirPhysics : MonoBehaviour
     private float defaultGravityScale = 1f;
 
     [HideInInspector] public bool isJumping;
+
+    private float jumpCooldown = 0.2f;
+    private float lastJumpTime = 0f;
+
     private void Awake()
     {
         playerManager = GetComponent<PlayerStateManager>();
@@ -25,11 +30,15 @@ public class AirPhysics : MonoBehaviour
     private bool _isGrounded => playerManager.isGrounded;
 
     public void Jump(){
-        floorExit();
+        if (Time.time - lastJumpTime < jumpCooldown) return;
+
+        lastJumpTime = Time.time;
+        isJumping = true;
+        //floorExit();
 
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        //StartCoroutine(playerManager.release_checking_ground());
+        StartCoroutine(playerManager.release_checking_ground());
     }
 
     private void floorExit(){
@@ -39,12 +48,13 @@ public class AirPhysics : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GravityController();
+        if(!_isGrounded) GravityController();
+        else isJumping = false;
+        
     }
 
     private void GravityController()
     {
-        if (_isGrounded) return;
         float gravityMultiplier;
         float currentYVelocity = rb.velocity.y;
 
@@ -55,7 +65,7 @@ public class AirPhysics : MonoBehaviour
         else // Neutro
             gravityMultiplier = defaultGravityScale;
 
-        Vector3 gravity = Physics.gravity * gravityMultiplier * Time.fixedDeltaTime;
+        Vector3 gravity = Physics.gravity.y * gravityMultiplier * Vector3.up * Time.fixedDeltaTime;
         rb.velocity += gravity;
         //rb.AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
     }    
