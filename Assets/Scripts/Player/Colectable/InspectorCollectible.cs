@@ -22,12 +22,11 @@ public class InspectorCollectible : MonoBehaviour
     public SO_SaveInputs inputs_SO;
 
     //bottom
-    public KeyCode interact_key;
+    public KeyCode interact_key => inputs_SO.interact_in;
 
 
     private void Start()
     {
-        interact_key = inputs_SO.interact_in;
         // Inicializa as referências necessárias
         cam = Camera.main.gameObject.GetComponent<PlayerCamera>();
         player = GetComponent<PlayerStateManager>();
@@ -197,10 +196,6 @@ public class InspectorCollectible : MonoBehaviour
 
         Destroy(closestObject); // Remove o objeto do cenário
     }
-
-    /// <summary>
-    /// Destroi todos os objetos marcados como "collectible" (usado para limpar a inspeção).
-    /// </summary>
     private void DestroyObjectsOfInspector()
     {
         var objectsInScene = GameObject.FindGameObjectsWithTag("collectible");

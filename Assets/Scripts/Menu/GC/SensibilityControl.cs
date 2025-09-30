@@ -96,7 +96,6 @@ public class SensibilityControl : MonoBehaviour
 
     private void default_slider(Slider slider)
     {
-        Debug.Log("Rodando");
         float sensX = valorPadraoSens[0]; //valor padrão
         float sensY = valorPadraoSens[1];
         sensX *= slider.value;
@@ -107,6 +106,5 @@ public class SensibilityControl : MonoBehaviour
         }
         inputs.sensitivityX = sensX;
         inputs.sensitivityY = sensY;
-        Debug.Log("Rodou");
     }
 }
