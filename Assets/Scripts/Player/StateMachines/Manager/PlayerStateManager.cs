@@ -108,13 +108,13 @@ public class PlayerStateManager : MonoBehaviour
 
     private IPlayerState GetCurrentState() => states[(int)currentStateType];
 
-    public IEnumerator release_checking_ground() {
+    /*public IEnumerator release_checking_ground() {
         canCheckGround = false;
         isGrounded = false;
         isOnRamp = false;
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(0.3f);
         canCheckGround = true;
-    }
+    }*/
 
     public void CheckGround()
     {
