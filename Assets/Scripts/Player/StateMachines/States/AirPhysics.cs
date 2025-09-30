@@ -9,7 +9,7 @@ public class AirPhysics : MonoBehaviour
     private PlayerStateManager playerManager;
 
     [Header("Jump Settings")]
-    [SerializeField, Range(0f, 2000f)] private float jumpForce = 500f;
+    [SerializeField, Range(0f, 20)] private float jumpForce = 10f;
 
     [Header("Gravity Multipliers")]
     [SerializeField, Range(0f, 5f)] private float downwardMultiplier = 3f;
