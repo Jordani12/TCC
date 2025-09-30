@@ -3,6 +3,7 @@ Fluxo de trabalho correto usando GIT BASH:
 cd (pasta pra armazenar)
 
 # Clonar o repo (caso for a primeira vez no PC)
+git init
 git clone https://github.com/Jordani12/TCC.git
 
 # Sempre trabalhe na sua branch 
