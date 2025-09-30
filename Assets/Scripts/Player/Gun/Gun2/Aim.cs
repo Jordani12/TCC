@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Aim : MonoBehaviour
 {
-    private float targetFOV = 40;
-    private float defaultFOV = 70;
+    [SerializeField] private SO_SaveInputs inputs;
+
+    private float targetFOV => inputs.fov - 30;
+    private float defaultFOV => inputs.fov;
+
     private float zoomSpeed = 8f;
 
     [HideInInspector] public static bool canChangeMove = false;
@@ -16,19 +19,12 @@ public class Aim : MonoBehaviour
 
     //coroutines
     private Coroutine zoomCoroutine;
-    [SerializeField] private SO_SaveInputs inputs;
 
     private GunController gun;
     
     private void Start()
     {
        gun = GetComponent<GunController>();
-    }
-
-    private void Update()
-    {
-        targetFOV = inputs.fov - 30;
-        defaultFOV = inputs.fov;
     }
 
     public void start_aim_increase()
@@ -47,23 +43,33 @@ public class Aim : MonoBehaviour
         zoomCoroutine = StartCoroutine(GunController.aim_Increase(false, targetFOV, defaultFOV, zoomSpeed));
     }
 
+    private float originalWalkSpeed;
+    private bool isZoomed;
+
     public void aim_moving_weapon(PlayerStateManager player)
     {
-        if (canChangeMove) { speedOnZoom(true, player); }
+        if (canChangeMove && !isZoomed) { speedOnZoom(true, player); }
         moveWeapon(aimingWeaponPosition);
     }
 
     public void aim_release_weapon(PlayerStateManager player)
     {
-        if (canChangeMove) { speedOnZoom(false, player); }
+        if (canChangeMove && isZoomed) { speedOnZoom(false, player); }
         moveWeapon(normalWeaponPosition);
     }
 
     private void speedOnZoom(bool zoom, PlayerStateManager player)
     {
+        if (zoom) {
+            originalWalkSpeed = player.walkSpeed;
+            player.walkSpeed = originalWalkSpeed * 0.5f;
+            isZoomed = true;
+        }
+        else {
+            player.walkSpeed = originalWalkSpeed;
+            isZoomed = false;
+        }
         canChangeMove = false;
-        float lessOrPlus = zoom ? 0.5f : 2f;
-        player.walkSpeed *= lessOrPlus; return;
     }
 
     private void moveWeapon(Vector3 targetPosition)
