@@ -1,26 +1,25 @@
-Fluxo de trabalho correto:
+Fluxo de trabalho correto usando GIT BASH:
 
-bash
-
-# Clonar o repo
 cd (pasta pra armazenar)
-git clone https://github.com/Jordani12/TCC.git (no master)
 
-# Sempre trabalhe na sua branch
-git checkout kaua
+# Clonar o repo (caso for a primeira vez no PC)
+git clone https://github.com/Jordani12/TCC.git
+
+# Sempre trabalhe na sua branch 
+git checkout (nome da sua branch) 
 
 # Antes de começar, atualize com a master
-git pull origin master
+git pull origin main
 
 # Faça suas alterações no Unity...
 # Depois commit e push
 git add .
 git commit -m "Minhas alterações"
-git push origin kaua
+git push origin (nome da sua branch)
 
 # se precisar...
 # Com espaços no nome - OBRIGATÓRIO as aspas
-git config --global user.name "Jordani12"
+git config --global user.name "seu nome de usuário do GitHub"
 
 # Email - SEMPRE com aspas
-git config --global user.email "ojordani59@gmail.com"
+git config --global user.email "seu email cadastrado no GitHub"
