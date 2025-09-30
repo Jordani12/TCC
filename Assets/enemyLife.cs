@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class enemyLife : MonoBehaviour
 {
-    //float life
+    [Header("Life")]
     public int actualLife;
     public int maxLife;
-    private Main_Animation anim;
+    [Header("Effect")]
     [SerializeField] private ParticleSystem shine_part;
+
+    private Main_Animation anim;
+
     private void Start()
     {
         actualLife = maxLife;
         anim = FindObjectOfType<Main_Animation>();
         if (actualLife >= maxLife / 4) shine_part.Stop();
     }
+
     public void TakeDamage(int value)
     {
         actualLife -= value;
@@ -29,9 +33,11 @@ public class enemyLife : MonoBehaviour
         }
         shines(can_finalizate());
     }
+
     private void Die(GameObject objeto) {
         Destroy(objeto);
     }
+
     private bool can_finalizate() {
         if(actualLife <= maxLife / 4) return true;
         return false;
