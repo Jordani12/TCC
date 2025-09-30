@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class AirPhysics : MonoBehaviour
@@ -8,7 +9,7 @@ public class AirPhysics : MonoBehaviour
     private PlayerStateManager playerManager;
 
     [Header("Jump Settings")]
-    [SerializeField, Range(0f, 2000f)] private float jumpForce = 500f;
+    [SerializeField, Range(0f, 20)] private float jumpForce = 10f;
 
     [Header("Gravity Multipliers")]
     [SerializeField, Range(0f, 5f)] private float downwardMultiplier = 3f;
@@ -17,6 +18,10 @@ public class AirPhysics : MonoBehaviour
     private float defaultGravityScale = 1f;
 
     [HideInInspector] public bool isJumping;
+
+    private float jumpCooldown = 0.2f;
+    private float lastJumpTime = 0f;
+
     private void Awake()
     {
         playerManager = GetComponent<PlayerStateManager>();
@@ -25,41 +30,43 @@ public class AirPhysics : MonoBehaviour
     private bool _isGrounded => playerManager.isGrounded;
 
     public void Jump(){
-        if (!playerManager.isGrounded) return;
+        if (Time.time - lastJumpTime < jumpCooldown) return;
 
-        floorExit();
+        lastJumpTime = Time.time;
+        isJumping = true;
+        //floorExit();
 
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        StartCoroutine(playerManager.release_checking_ground());
     }
 
     private void floorExit(){
-        if (playerManager.isOnRamp)
-            transform.position += Vector3.up * .3f;
-        else
-            transform.position += Vector3.up * .1f;
+        float offset = playerManager.isOnRamp ? 0.3f : 0.1f;
+        transform.position += Vector3.up * offset;
     }
 
     private void FixedUpdate()
     {
-        if (!_isGrounded)
-        {
-            GravityController();
-        }
+        if(!_isGrounded) GravityController();
+        else isJumping = false;
+        
     }
 
     private void GravityController()
     {
         float gravityMultiplier;
+        float currentYVelocity = rb.velocity.y;
 
-        if (rb.velocity.y > 0) // Subindo
+        if (currentYVelocity > 0 ) // Subindo
             gravityMultiplier = upwardMultiplier;
-        else if (rb.velocity.y < 0) // Descendo
+        else if (currentYVelocity < 0) // Descendo
             gravityMultiplier = downwardMultiplier;
         else // Neutro
             gravityMultiplier = defaultGravityScale;
 
-        //apply custom gravity
-        rb.AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
-    }
+        Vector3 gravity = Physics.gravity.y * gravityMultiplier * Vector3.up * Time.fixedDeltaTime;
+        rb.velocity += gravity;
+        //rb.AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
+    }    
 }

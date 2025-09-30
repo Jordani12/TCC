@@ -1,15 +1,17 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 public class GunController : MonoBehaviour
 {
+    public SO_SaveInputs inputs_SO;
+
     [Header("Tags and transforms")]
     public string wallTag, floorTag, sandTag, barrilTag, destructibleDoor;
     public GameObject wallHole;
     public GameObject wallImpact, sandImpact, enemyImpact;
     public Transform holes;
     [Header("Gun")]
-    public Gun beforeThisGun;
     public Gun currentGun;
     public Gun[] inventory;
     [Header("Hud")]
@@ -20,6 +22,8 @@ public class GunController : MonoBehaviour
     public GameObject _revolver;
     public GameObject _shotgun;
     public GameObject _melee;
+
+    private Gun beforeThisGun;
 
     //scripts includeds
     private PlayerStateManager player;
@@ -46,6 +50,11 @@ public class GunController : MonoBehaviour
     private Aim _aim;
     private ReplacementGun _replace;
 
+    public KeyCode recharging => inputs_SO.recharging;
+    public MouseButton aim => inputs_SO.aim;
+    public KeyCode change1 => inputs_SO.change1;
+    public KeyCode change2 => inputs_SO.change2;
+    public KeyCode change3 => inputs_SO.change3;
 
     private void Start(){ 
         foreach (var gun in inventory) 
@@ -80,23 +89,17 @@ public class GunController : MonoBehaviour
     
     private bool isTrading_gun;
     private void CheckBottom(){
-        bool isRecharging = Input.GetKeyDown(KeyCode.R);
-        bool isButton1 = Input.GetKeyDown(KeyCode.Alpha1);
-        bool isButton2 = Input.GetKeyDown(KeyCode.Alpha2);
-        bool isButton3 = Input.GetKeyDown(KeyCode.Alpha3);
-        bool _isAiming = Input.GetMouseButton(1);
-        bool releaseAiming = Input.GetMouseButtonUp(1);
-        bool pressAiming = Input.GetMouseButtonDown(1);
+        bool _isAiming = Input.GetMouseButton((int)aim);
 
         cam.isAiming = _isAiming;
 
         if(currentGun.getGun.gunName != "Weapon") {//se não for uma arma branca(ela não consegue recarregar e mirar)
             //mira suave
-            if (pressAiming) 
+            if (Input.GetMouseButtonDown((int)aim)) 
                 Aim.canChangeMove = true;
-            if (_isAiming && !isAiming)
+            if (Input.GetMouseButton((int)aim) && !isAiming)
                 _aim.start_aim_increase();
-            else if (releaseAiming && isAiming)
+            else if (Input.GetMouseButtonUp((int)aim) && isAiming)
                 _aim.releasing_aim();
             // movimentacao suave da arma (independente do zoom)
             if (isAiming && currentGun.getGun.gunName != "Shotgun")
@@ -105,17 +108,17 @@ public class GunController : MonoBehaviour
                  _aim.aim_release_weapon(player);
         }
         if (!reloading){
-            if (!isAiming)
+            if (!isAiming && currentGun.isTimeToShoot)
             {
                 //troca de arma
-                if (isButton1 && inventory.Length > 0 && currentGun.getGun.gunName != "Pistol" && !isTrading_gun)
+                if (Input.GetKeyDown(change1) && inventory.Length > 0 && currentGun.getGun.gunName != "Pistol" && !isTrading_gun)
                     _replace.replacement_pistol();
-                else if (isButton2 && inventory.Length > 1 && currentGun.getGun.gunName != "Shotgun" && !isTrading_gun)
+                else if (Input.GetKeyDown(change2) && inventory.Length > 1 && currentGun.getGun.gunName != "Shotgun" && !isTrading_gun)
                     _replace.replacement_shotgun();
-                else if (isButton3 && inventory.Length > 2 && currentGun.getGun.gunName != "Weapon" && !isTrading_gun)
+                else if (Input.GetKeyDown(change3) && inventory.Length > 2 && currentGun.getGun.gunName != "Weapon" && !isTrading_gun)
                     _replace.replacement_melee();
                 //recarregar municao
-                else if (isRecharging && currentGun.getGun.gunName != "Weapon" && currentGun.isTimeToShoot)
+                else if (Input.GetKeyDown(recharging) && currentGun.getGun.gunName != "Weapon" && currentGun.isTimeToShoot)
                     StartCoroutine(Reload());
                     
             }
