@@ -154,6 +154,7 @@ public class MenuPause : MonoBehaviour
 
     public void Fov()
     {
+        if (_fov == null) _fov = FindObjectOfType<FovControl>();
         _fov.Fov_Change();
     }
 
