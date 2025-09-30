@@ -19,7 +19,7 @@ git push origin (nome da sua branch)
 
 # se precisar...
 # Com espaços no nome - OBRIGATÓRIO as aspas
-git config --global user.name "Jordani12"
+git config --global user.name "seu nome de usuário do GitHub"
 
 # Email - SEMPRE com aspas
-git config --global user.email "ojordani59@gmail.com"
+git config --global user.email "seu email cadastrado no GitHub"
