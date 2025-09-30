@@ -7,7 +7,9 @@ public class FovControl : MonoBehaviour
 {
     private float valorPadraoFov = 70;
 
+    [Header("Slider")]
     [SerializeField] private Slider fovSlider;
+    [Header("Data")]
     public SO_SaveInputs inputs;
 
     private void Awake()
@@ -31,15 +33,10 @@ public class FovControl : MonoBehaviour
 
     private void atribuate_values()
     {
-        try {
-            if (fovSlider == null) return;
+        if (fovSlider == null) return;
 
-            fovSlider.minValue = -10f;
-            fovSlider.maxValue = 20f;
-            fovSlider.value = inputs.fov - valorPadraoFov;
-        }
-        catch (System.Exception e) {
-            Debug.LogError("Erro: " + e.Message);
-        }
+        fovSlider.minValue = -10f;
+        fovSlider.maxValue = 20f;
+        fovSlider.value = inputs.fov - valorPadraoFov;
     }
 }
