@@ -90,7 +90,7 @@ public class WalkingState : MonoBehaviour, IPlayerState
         // Reduz força no ar
         if (!player.isGrounded)
         {
-            currentSpeed = speed * 0.7f; // 10% da força no ar
+            currentSpeed = speed * 0.7f; // 70% da força no ar
         }
 
         Vector3 force = forceDirection * currentSpeed;
