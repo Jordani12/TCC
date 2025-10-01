@@ -5,16 +5,10 @@ using UnityEngine;
 public class DoorDestructible : MonoBehaviour
 {
     //componentes
-    private new BoxCollider collider;  // Referência ao collider da porta (new para sobrescrever warning)
 
     //door's settings
     public List<GameObject> woods = new List<GameObject>();
     private int count;
-
-    private void Start()
-    {
-        collider = GetComponent<BoxCollider>();
-    }
 
     private void Update()
     {
@@ -36,6 +30,7 @@ public class DoorDestructible : MonoBehaviour
 
         if (woods.Count == 0)
         {
+            BoxCollider collider = this.gameObject.GetComponent<BoxCollider>();
             collider.isTrigger = true; 
             this.enabled = false; 
         }
