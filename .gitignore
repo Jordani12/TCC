@@ -11,8 +11,6 @@
 .utmp/
 UserSettings/
 *.dwlt
-echo "Refatoring_Data/"
-echo "*.resS"
 =======
 >>>>>>> 7e8732285c5d1f34dd960184b5d33c5cb1ee5c49
 
@@ -33,5 +31,3 @@ echo "*.resS"
 # Sistema
 /.DS_Store
 /Thumbs.db
-Refatoring_Data/
-*.resS
