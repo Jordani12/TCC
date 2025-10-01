@@ -33,3 +33,5 @@ echo "*.resS"
 # Sistema
 /.DS_Store
 /Thumbs.db
+Refatoring_Data/
+*.resS
