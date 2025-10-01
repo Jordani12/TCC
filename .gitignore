@@ -1,9 +1,4 @@
-# This .gitignore file should be placed at the root of your Unity project directory
-#
-# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
-#
-
-# Unity
+# Unity GitIgnore
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -11,11 +6,13 @@
 /[Bb]uilds/
 /[Pp]rojects/
 /[Ll]ogs/
-/[Uu]ser[Ss]ettings/
 /[Mm]emoryCaptures/
+<<<<<<< HEAD
 .utmp/
 UserSettings/
 *.dwlt
+=======
+>>>>>>> 7e8732285c5d1f34dd960184b5d33c5cb1ee5c49
 
 # Visual Studio
 /[Vv]s/
@@ -24,48 +21,13 @@ UserSettings/
 /.vs/
 
 # Arquivos de projeto
-*.csproj
-*.unityproj
-*.sln
-*.suo
-*.tmp
-*.user
-*.userprefs
-*.pidb
-*.booproj
-*.svd
-*.pdb
-*.mdb
-*.opendb
-*.VC.db
+/*.csproj
+/*.unityproj
+/*.sln
+/*.suo
+/*.user
+/*.userprefs
 
 # Sistema
-.DS_Store
-Thumbs.db
-
-# Logs e arquivos temporários
-*.log
-
-# Blender
-*.blend1
-*.blend1.meta
-
-# Recordings can get excessive in size
-/[Rr]ecordings/
-
-# Builds
-*.apk
-*.aab
-*.unitypackage
-*.app
-
-# Unity3D generated meta files
-*.pidb.meta
-*.pdb.meta
-*.mdb.meta
-
-# Unity3D generated file on crash reports
-sysinfo.txt
-
-# Mono auto generated files
-mono_crash.*
+/.DS_Store
+/Thumbs.db
