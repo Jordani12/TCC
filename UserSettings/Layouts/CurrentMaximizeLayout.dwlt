@@ -25,7 +25,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 854
+  controlID: 11046
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -174,10 +174,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: bc98ffff
-      m_LastClickedID: -26436
-      m_ExpandedIDs: 34fbffff
+      scrollPos: {x: 0, y: 32}
+      m_SelectedIDs: 36b90000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 34fbffffec5e0000da600000ce6100008462000066630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 855
+  controlID: 11047
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -511,9 +511,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1602.9436, y: 8.311605, z: 1186.7288}
+    m_Target: {x: 1622.2, y: 1.7406044, z: 1179.5}
     speed: 2
-    m_Value: {x: 1602.9436, y: 8.311605, z: 1186.7288}
+    m_Value: {x: 1622.2, y: 1.7406044, z: 1179.5}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -560,13 +560,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.12729873, y: 0.18630983, z: -0.023986388, w: -0.97395617}
+    m_Target: {x: -0.029348636, y: -0.96527565, z: 0.12770449, w: -0.22640885}
     speed: 2
-    m_Value: {x: -0.1272935, y: 0.18630217, z: -0.0239854, w: -0.9739161}
+    m_Value: {x: -0.02934588, y: -0.965185, z: 0.12769249, w: -0.22638759}
   m_Size:
-    m_Target: 0.48453873
+    m_Target: 5.435914
     speed: 2
-    m_Value: 0.48453873
+    m_Value: 5.435914
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -641,7 +641,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 230
     y: 460
-    width: 753
+    width: 690
     height: 219
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -716,22 +716,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animations/Morcego/MorcegoAnimation
+    - Assets/3DModels
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Animations/Morcego/MorcegoAnimation
+  - Assets/3DModels
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\gugat\OneDrive\Documentos\MeuProjetos\TCC
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 109}
-    m_SelectedIDs: 628d0000
-    m_LastClickedID: 36194
-    m_ExpandedIDs: 00000000f06f0000f66f0000a28a0000ac8a000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 49}
+    m_SelectedIDs: f46f0000
+    m_LastClickedID: 28660
+    m_ExpandedIDs: 00000000f06f0000f46f000002700000ac8a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -759,7 +759,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f06f000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000f06f0000f46f000002700000ac8a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -784,24 +784,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: bc98ffff
-    m_LastClickedInstanceID: -26436
+    m_SelectedInstanceIDs: 36b90000
+    m_LastClickedInstanceID: 47414
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000000000003671000060750000cc6a0000
+    m_ExpandedInstanceIDs: c6230000000000003671000060750000cc6a00005ea30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: MorcegoAnimation
-      m_OriginalName: MorcegoAnimation
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 36200
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_CreateAssetUtility:
@@ -872,11 +872,11 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: 420
+    m_CachedPref: 151
     m_ControlHash: 1412526313
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 270
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
