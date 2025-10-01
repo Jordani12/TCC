@@ -7,6 +7,12 @@
 /[Pp]rojects/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+<<<<<<< HEAD
+.utmp/
+UserSettings/
+*.dwlt
+=======
+>>>>>>> 7e8732285c5d1f34dd960184b5d33c5cb1ee5c49
 
 # Visual Studio
 /[Vv]s/
