@@ -36,6 +36,8 @@ public class DoorDestructible : MonoBehaviour
 
         if (woods.Count == 0)
         {
+            BoxCollider collider = this.gameObject.GetComponent<BoxCollider>();
+
             collider.isTrigger = true; 
             this.enabled = false; 
         }
