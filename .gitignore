@@ -7,12 +7,21 @@
 /[Pp]rojects/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+<<<<<<< HEAD
 .utmp/
 
 #UserSettings
 [Uu]ser[Ss]ettings/
 [Uu]ser[Pp]refs/
 *.dwlt
+=======
+<<<<<<< HEAD
+.utmp/
+UserSettings/
+*.dwlt
+=======
+>>>>>>> 7e8732285c5d1f34dd960184b5d33c5cb1ee5c49
+>>>>>>> 73c3525b0988d3d609c744935adaddd74b2b7241
 
 # Visual Studio
 /[Vv]s/
@@ -31,6 +40,7 @@
 # Sistema
 /.DS_Store
 /Thumbs.db
+<<<<<<< HEAD
 
 # Arquivos gerados automaticamente
 Assets/AssetStoreTools*
@@ -39,3 +49,5 @@ Assets/AssetStoreTools*
 # Arquivos de IDE
 .vs/
 .vscode/
+=======
+>>>>>>> 73c3525b0988d3d609c744935adaddd74b2b7241
