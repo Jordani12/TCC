@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class OnEnterSpawnEnemy : MonoBehaviour
 {
-    /*private void OnTriggerEnter(Collider other){
+    private void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "spawnEnemy"){
-            SpawnEnemy spawnEn = other.GetComponent<SpawnEnemy>();
+            SpawEnemy spawnEn = other.GetComponent<SpawEnemy>();
             if(spawnEn != null) {spawnEn.Spawn();}
         }
-    }*/
+    }
 }
