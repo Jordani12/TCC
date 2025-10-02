@@ -16,8 +16,8 @@ public class enemyLife : MonoBehaviour
     {
         actualLife = maxLife;
         anim = FindObjectOfType<Main_Animation>();
-        if (anim == null) Debug.Log("Null");
-        if (actualLife >= maxLife / 4) shine_part.Stop();
+        if (actualLife >= maxLife / 4 && shine_part != null)
+            shine_part.Stop();
     }
 
     public void TakeDamage(int value)
@@ -32,7 +32,7 @@ public class enemyLife : MonoBehaviour
             else
                 Die(gameObject);
         }
-        shines(can_finalizate());
+        if(shine_part != null) shines(can_finalizate());
         anim.X_anim();
     }
 
