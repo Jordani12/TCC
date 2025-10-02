@@ -31,3 +31,11 @@ UserSettings/
 # Sistema
 /.DS_Store
 /Thumbs.db
+
+# Arquivos gerados automaticamente
+Assets/AssetStoreTools*
+*.unitypackage
+
+# Arquivos de IDE
+.vs/
+.vscode/
