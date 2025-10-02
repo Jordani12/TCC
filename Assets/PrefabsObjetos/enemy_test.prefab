@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actualLife: 100
   maxLife: 100
-  shine_part: {fileID: 3631504251539954402, guid: cd67cb2e929a7ee4f9cc5f36c8c50517, type: 3}
+  shine_part: {fileID: 465162335137156508}
 --- !u!1 &465162334374922065
 GameObject:
   m_ObjectHideFlags: 0
