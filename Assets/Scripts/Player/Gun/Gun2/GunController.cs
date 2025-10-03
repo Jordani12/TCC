@@ -311,7 +311,7 @@ public class GunController : MonoBehaviour
         }
     }
    
-
+    
     private void give_damage(RaycastHit target, GameObject impact)
     {
         enemyLife enLife = target.transform.GetComponentInParent<enemyLife>(); // Busca em todos os pais
