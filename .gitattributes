@@ -1,1 +1,5 @@
 *.resS filter=lfs diff=lfs merge=lfs -text
+<<<<<<< HEAD
+Assets/Scenes/Fase1Trem/Parte2/LightingData.asset filter=lfs diff=lfs merge=lfs -text
+=======
+>>>>>>> c5b114e9ad8b20da724efae5696ada3e589fd23d
