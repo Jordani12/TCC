@@ -51,3 +51,5 @@ Assets/AssetStoreTools*
 .vscode/
 =======
 >>>>>>> 73c3525b0988d3d609c744935adaddd74b2b7241
+**/LightingData.asset
+**/*Lighting*
