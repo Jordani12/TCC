@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menus/MainMenu.unity
+    guid: c790606309f32614cb4efb327dfedc75
+  - enabled: 1
+    path: Assets/Scenes/Fase1Trem/Parte1.unity
+    guid: 474f6fa8ef3c2bd4cb7d137ca37c779f
+  - enabled: 1
+    path: Assets/Scenes/Fase1Trem/Parte2.unity
+    guid: a1fb70262555668459edabb0b2b8c27e
+  - enabled: 1
+    path: Assets/Scenes/Fase1Trem/Parte3.unity
+    guid: 2d7d053debdf5c943a873c51b1d213d3
+  - enabled: 1
+    path: Assets/Scenes/Menus/MenuGameOver.unity
+    guid: cdcbea91c0ca37849a49e76a72bdf61a
   m_configObjects: {}
