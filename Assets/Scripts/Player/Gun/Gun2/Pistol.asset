@@ -16,9 +16,9 @@ MonoBehaviour:
   damage: 13
   rechargingTime: 2
   shootingTime: 0.2
-  maximumAmmo: 15
-  ammunition: 14
-  ammunitionToReload: 90
+  maximumAmmo: 12
+  ammunition: 12
+  ammunitionToReload: 12
   recoilGun: 2
   distance: 40
   isMelee: 1
