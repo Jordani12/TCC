@@ -18,7 +18,7 @@ MonoBehaviour:
   shootingTime: 1
   maximumAmmo: 1
   ammunition: 1
-  ammunitionToReload: 2
+  ammunitionToReload: 3
   recoilGun: 3
   distance: 8
   isMelee: 1
