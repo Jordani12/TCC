@@ -13,19 +13,15 @@ public class Main_Animation : MonoBehaviour
 
     private void Start()
     {
-        if (killed_anim == null)
-        {
-            killed_anim = FindObjectOfType<Animator>();
-            Debug.Log("Animator referenciado automaticamente");
-        }
-
         enLife = FindObjectOfType<enemyLife>();
     }
+
     public void DeadMoveCam()
     {
         MenuPause.can_change_canvas = false;
         cam_animator.SetBool("died", true);
     }
+
     public void X_anim()
     {
         if (killed_anim == null || damage_anim == null) return;
@@ -47,11 +43,13 @@ public class Main_Animation : MonoBehaviour
         }
 
     }
+
     private IEnumerator animation_reset(Animator anim)
     {
         yield return new WaitForSeconds(0.2f);
         anim.SetBool("activate_fade", false);
     }
+
     public void Change_Gun_Anim(){
         _change_gun_anim.SetTrigger("change");
     }
