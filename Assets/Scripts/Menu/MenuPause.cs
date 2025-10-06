@@ -35,6 +35,8 @@ public class MenuPause : MonoBehaviour
     private GetToDeath death;
 
     //variables
+    public bool onPause { get; private set; }
+
     private bool isPaused = false;
     [HideInInspector] public static bool can_change_canvas;
 
@@ -87,6 +89,7 @@ public class MenuPause : MonoBehaviour
 
         if (press_B && can_change_canvas)
         {
+            onPause = !onPause;
             player.canDash = !player.canDash;
             if(gun.currentGun.passedTutorial)
                 gun.currentGun.canShoot = !gun.currentGun.canShoot;
@@ -160,6 +163,7 @@ public class MenuPause : MonoBehaviour
 
     public void Resume()
     {
+        onPause = !onPause;
         SetPauseMenuVisibility(false);
         canva_controller();
         timeChange();

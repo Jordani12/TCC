@@ -194,7 +194,7 @@ public class InspectorCollectible : MonoBehaviour
         onInspector = false; // Desativa o modo de inspeção
         gunController.currentGun.canShoot = true; // Permite atirar novamente
 
-        Destroy(closestObject); // Remove o objeto do cenário
+        DestroyCollectable.DestroyObject(closestObject.transform.parent.gameObject); // Remove o objeto do cenário
     }
     private void DestroyObjectsOfInspector()
     {

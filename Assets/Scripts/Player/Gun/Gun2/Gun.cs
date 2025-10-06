@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -32,9 +33,12 @@ public class Gun : MonoBehaviour
     public bool canEquipShotgun { get; set; } = false; // Flag especial para desbloqueio de shotgun
     public bool canShoot { get; set; } = false;
     
+    private MenuPause menu;
+    
     private void Awake() {
         // Inicializa referências
         gun = GameObject.FindObjectOfType<GunController>();
+        menu = FindObjectOfType<MenuPause>();
         passedTutorial = false;
     }
 
@@ -71,17 +75,15 @@ public class Gun : MonoBehaviour
     }
 
     private void CheckShoot(GunController gun){
-        bool pressBottom = Input.GetMouseButtonDown(0); 
-        
-        if (!gun.reloading && pressBottom && canShoot && !player.isDashing) {
-            if (isTimeToShoot) {
+        if (!canShoot) return;
+        if (Input.GetMouseButtonDown(0) && !gun.reloading && !player.isDashing)
+            if (isTimeToShoot && !menu.onPause) {
+                Shoot(gun);
                 if (getGun.ammunition != 0 || getGun.gunName == "Weapon")
                     StartCoroutine(ShootingReload());
-                Shoot(gun);
             }
-        }
     }
-
+    
     private void Shoot(GunController gun){
         gun.Shooting();  
     }

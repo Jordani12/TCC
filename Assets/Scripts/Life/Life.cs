@@ -18,8 +18,6 @@ public class Life : MonoBehaviour
     private Main_Animation anim;
     private GetToDeath death;
 
-    public bool isEnemy;
-
     void Start(){//atualiza a vida atual para a max
         actualLife = maxLife;
         BarraDeVida.maxValue = maxLife;
@@ -34,8 +32,7 @@ public class Life : MonoBehaviour
 
     private void Update()
     {
-        if(!isEnemy)
-            update_life_UI();
+        update_life_UI();
     }
 
     public void low_life_text(bool ligado){
