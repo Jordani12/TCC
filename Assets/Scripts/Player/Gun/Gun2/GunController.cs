@@ -267,7 +267,7 @@ public class GunController : MonoBehaviour
             Instantiate(currentGun.muzzeEfect, currentGun.firePoint);//aparece o brilho do tiro
     }
 
-    private float quant_Raycasts_Shotgun = 9;
+    private float quant_Raycasts_Shotgun = 15;
     public void Shooting(){
         if(currentGun.getGun.ammunition == 0 && currentGun.getGun.gunName != "Weapon" && currentGun.isTimeToShoot){StartCoroutine(Reload()); return;}
 
