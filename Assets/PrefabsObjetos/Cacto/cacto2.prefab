@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9144928231234810456}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -89.19995, y: -7.1334534, z: 53.599976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -45,15 +45,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b51eefba4a3600345ba7382e6201ab21, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.514404
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b51eefba4a3600345ba7382e6201ab21, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9699974
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b51eefba4a3600345ba7382e6201ab21, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.85315
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b51eefba4a3600345ba7382e6201ab21, type: 3}
       propertyPath: m_LocalRotation.w
@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cacto2
       objectReference: {fileID: 0}
+    - target: {fileID: 7908916205081713447, guid: b51eefba4a3600345ba7382e6201ab21, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 10786165029ca2b48b3ce2f6c30c6d71, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b51eefba4a3600345ba7382e6201ab21, type: 3}
 --- !u!1 &4968744490269153878 stripped
