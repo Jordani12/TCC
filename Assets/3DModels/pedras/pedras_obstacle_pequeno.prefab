@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra1_pequena (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5285006960147129054, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -99,6 +103,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9031852886520359969, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
 --- !u!4 &4979999179472726626 stripped
@@ -116,6 +124,10 @@ PrefabInstance:
     - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_Name
       value: pedra1_pequena (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5285006960147129054, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_RootOrder
@@ -161,6 +173,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 26.665
       objectReference: {fileID: 0}
+    - target: {fileID: 9031852886520359969, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
 --- !u!4 &5855895551739992139 stripped
@@ -178,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_Name
       value: pedra1_pequena (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5285006960147129054, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_RootOrder
@@ -223,6 +243,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.546
       objectReference: {fileID: 0}
+    - target: {fileID: 9031852886520359969, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
 --- !u!4 &7499561788007006631 stripped
@@ -240,6 +264,10 @@ PrefabInstance:
     - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_Name
       value: pedra1_pequena
+      objectReference: {fileID: 0}
+    - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5285006960147129054, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_RootOrder
@@ -285,6 +313,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9031852886520359969, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
 --- !u!4 &7005390659630799669 stripped
@@ -302,6 +334,10 @@ PrefabInstance:
     - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_Name
       value: pedra1_pequena (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5285006960147129054, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_RootOrder
@@ -347,6 +383,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9031852886520359969, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
 --- !u!4 &9057147497813357152 stripped
@@ -364,6 +404,10 @@ PrefabInstance:
     - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_Name
       value: pedra1_pequena (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5285006960147129054, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_RootOrder
@@ -409,6 +453,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9031852886520359969, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
 --- !u!4 &784424614851719214 stripped
@@ -426,6 +474,10 @@ PrefabInstance:
     - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_Name
       value: pedra2_pequena (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3662877858466663414, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_RootOrder
@@ -471,6 +523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -18.572
       objectReference: {fileID: 0}
+    - target: {fileID: 8606670951732988507, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
 --- !u!4 &8549193994177922127 stripped
@@ -488,6 +544,10 @@ PrefabInstance:
     - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_Name
       value: pedra2_pequena (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3662877858466663414, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_RootOrder
@@ -533,6 +593,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8606670951732988507, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
 --- !u!4 &8598932522606952320 stripped
@@ -550,6 +614,10 @@ PrefabInstance:
     - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_Name
       value: pedra2_pequena (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3662877858466663414, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_RootOrder
@@ -595,6 +663,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -24.258
       objectReference: {fileID: 0}
+    - target: {fileID: 8606670951732988507, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
 --- !u!4 &8655502871338901102 stripped
@@ -612,6 +684,10 @@ PrefabInstance:
     - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_Name
       value: pedra2_pequena
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3662877858466663414, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_RootOrder
@@ -657,6 +733,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8606670951732988507, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
 --- !u!4 &7768781841286013294 stripped
@@ -674,6 +754,10 @@ PrefabInstance:
     - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_Name
       value: pedra1_pequena (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 152848473911513364, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5285006960147129054, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
       propertyPath: m_RootOrder
@@ -719,6 +803,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9031852886520359969, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e30a6cd0bdfc94abd60a497cfe438b, type: 3}
 --- !u!4 &2939728537344521649 stripped
@@ -736,6 +824,10 @@ PrefabInstance:
     - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_Name
       value: pedra2_pequena (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3662877858466663414, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_RootOrder
@@ -781,6 +873,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8606670951732988507, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
 --- !u!4 &6364869837480259077 stripped
@@ -798,6 +894,10 @@ PrefabInstance:
     - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_Name
       value: pedra2_pequena (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291069855609807554, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3662877858466663414, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_RootOrder
@@ -842,6 +942,10 @@ PrefabInstance:
     - target: {fileID: 3662877858466663414, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8606670951732988507, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1d7825b8ec9de4fa196aed5381ec59, type: 3}
