@@ -13,5 +13,7 @@ public class Collectible : MonoBehaviour
 
     [Tooltip("Preencher apenas se [type] for [Gun]")]
     public string weaponName;
-
+    
+    [Header("Particle Effect")]
+    public GameObject up_part_effect;
 }

@@ -89143,6 +89143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bala
       objectReference: {fileID: 0}
+    - target: {fileID: 954287589039684334, guid: ea1f52b26e055e545b822b374e605719, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6447610106729823627, guid: ea1f52b26e055e545b822b374e605719, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -126509,7 +126513,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25002
+  m_Name: pb_Mesh59440
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

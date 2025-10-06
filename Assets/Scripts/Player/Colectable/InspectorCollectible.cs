@@ -91,6 +91,13 @@ public class InspectorCollectible : MonoBehaviour
 
             textCollectMessage.gameObject.SetActive(distance <= 2);
 
+            if(distance <= 2)
+            {
+                Collectible collectible = closestObject.gameObject.GetComponent<Collectible>();
+
+                collectible.up_part_effect.SetActive(false);
+            }
+
             //se o jogador estiver perto e pressionar E, abre a inspeção
             if (!onInspector && Input.GetKeyDown(interact_key) && distance <= 2)
             {
