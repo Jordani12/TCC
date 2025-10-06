@@ -87,6 +87,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TremCarga
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a45293b63b9033d4ca87378b4d888f13, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a45293b63b9033d4ca87378b4d888f13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a45293b63b9033d4ca87378b4d888f13, type: 3}
 --- !u!1 &6101032047287790417 stripped
