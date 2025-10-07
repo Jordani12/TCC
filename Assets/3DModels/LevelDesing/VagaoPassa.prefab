@@ -88,6 +88,10 @@ PrefabInstance:
       value: VagaoPassageiro
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 343031d99430ac14e8d3e636da329bd0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 343031d99430ac14e8d3e636da329bd0, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}

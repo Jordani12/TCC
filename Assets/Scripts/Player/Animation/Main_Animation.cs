@@ -10,24 +10,6 @@ public class Main_Animation : MonoBehaviour
     public Animator killed_anim;
     public Animator damage_anim;
     public Animator _change_gun_anim;
-    private enemyLife enLife;
-
-    private void Start()
-    {
-        OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        enLife = FindObjectOfType<enemyLife>();
-    }
-
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
 
     public void DeadMoveCam()
     {
@@ -35,7 +17,7 @@ public class Main_Animation : MonoBehaviour
         cam_animator.SetBool("died", true);
     }
 
-    public void X_anim()
+    public void X_anim(enemyLife enLife)
     {
         if (killed_anim == null || damage_anim == null) return;
 
@@ -70,4 +52,3 @@ public class Main_Animation : MonoBehaviour
         _change_gun_anim.SetTrigger("change");
     }
 }
-

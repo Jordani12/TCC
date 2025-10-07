@@ -33,7 +33,7 @@ public class enemyLife : MonoBehaviour
                 Die(gameObject);
         }
         if(shine_part != null) shines(can_finalizate());
-        anim.X_anim();
+        anim.X_anim(this);
     }
 
     private void Die(GameObject objeto) {
