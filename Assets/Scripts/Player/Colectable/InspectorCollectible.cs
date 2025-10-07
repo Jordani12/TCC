@@ -105,9 +105,10 @@ public class InspectorCollectible : MonoBehaviour
                 bool alreadyCollected = ContainsWeapon(proprities);
                 if (alreadyCollected){
                     CollectItem(closestObject);
-                    Destroy(closestObject);
+                    DestroyCollectable.DestroyObject(closestObject.transform.parent.gameObject); // Remove o objeto do cenário
                 }
-                else{
+                else
+                {
                     textCollectMessage.text = "[F] to return";
                     OpenInspector(closestObject);
                 }
