@@ -5037,7 +5037,7 @@ MonoBehaviour:
   objectDescription: 9mm Pistol
   type: 0
   AlreadyCollectThisItem: 0
-  value: 6
+  value: 12
   weaponName: Pistol
   up_part_effect: {fileID: 1165605794115813018}
 --- !u!1001 &6395057936218296631
