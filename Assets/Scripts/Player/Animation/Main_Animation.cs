@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
 public class Main_Animation : MonoBehaviour
 {
@@ -13,7 +14,19 @@ public class Main_Animation : MonoBehaviour
 
     private void Start()
     {
+        OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         enLife = FindObjectOfType<enemyLife>();
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void DeadMoveCam()
@@ -26,11 +39,14 @@ public class Main_Animation : MonoBehaviour
     {
         if (killed_anim == null || damage_anim == null) return;
 
+        if (enLife == null) return;
+
         if (enLife.actualLife <= 0)
         {
             killed_anim.SetBool("activate_fade", false);
             damage_anim.SetBool("activate_fade", false);
             killed_anim.SetBool("activate_fade", true);
+
             StartCoroutine(animation_reset(killed_anim));
         }
         else
