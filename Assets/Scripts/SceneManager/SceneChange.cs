@@ -1,26 +1,41 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
     [SerializeField] private string nameScene;
-    private bool canEntry;
-    private void Update()
+
+    [Header("Fade Animator")]
+    [SerializeField] private Animator fade_animator;    
+
+    private void Start()
     {
-        if (canEntry){
-            Logic();
-        }       
+        StartCoroutine(black_blind_fade(false));
     }
+
     private void OnTriggerEnter(Collider other){//check se esta perto da porta
-        if(other.gameObject.tag == "Player"){
-            canEntry = true;
+        if(other.gameObject.tag == "Player")
+        {
+            Logic();
         }
     }
+
     void Logic()
     {
-        if (this.nameScene != null) { SceneManager.LoadScene(this.nameScene); }
-        canEntry = false;
+        if (this.nameScene != null) { StartCoroutine(black_blind_fade(true)); }
+    }
+
+    private IEnumerator black_blind_fade(bool blink)
+    {
+        if (blink)
+            fade_animator.Play("fade_painel_onLevelPass", 0, 0f);
+        else
+            fade_animator.Play("fade_out_painel_onLevelEntry", 0, 0f);
+        
+        yield return new WaitForSeconds(1.49f);
+
+        if(blink)
+            SceneManager.LoadScene(this.nameScene);
     }
 }
