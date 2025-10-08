@@ -180,9 +180,9 @@ public class GunController : MonoBehaviour
 
     
     private void activateCanShoot() {
-        var gunVerify = GameObject.FindObjectOfType<Gun>();
+        var gunVerify = FindObjectOfType<Gun>();
 
-        if (gunVerify != null && currentGun != null && currentGun.passedTutorial) {
+        if (gunVerify != null && currentGun != null) {
             foreach (var guns in inventory) {
                 guns.canShoot = true;
             }

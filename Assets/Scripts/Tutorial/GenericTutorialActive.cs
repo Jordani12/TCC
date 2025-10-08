@@ -9,38 +9,38 @@ public class GenericTutorialActive : MonoBehaviour
     private PlayerStateManager player;
     [SerializeField] private GameObject txt_shoot;
     [SerializeField] private GameObject txt_move;
-    private bool alr_activate = false;
+    [SerializeField] private GameObject txt_dash;
 
     private void Start()
     {
         txt_move.SetActive(true);
         txt_shoot.SetActive(false);
+        txt_dash.SetActive(false);
         player = GameObject.FindObjectOfType<PlayerStateManager>();
         gun = GameObject.FindObjectOfType<GunController>();
     }
     private void Update()
     {
         if (player.isMoving && txt_move.activeInHierarchy)
-            txt_move.SetActive(false);
+                txt_move.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && !alr_activate) {
+        if (other.gameObject.tag == "Player") {
             CheckWhatWant();
-            alr_activate = true;
         }
     }
     private void CheckWhatWant()
     {
-        if (activeEnum == GenericActivateEnum.ativaShoot && gun != null) {
-            gun.currentGun.passedTutorial = true;
-            gun.currentGun.canShoot = true;
+        if (activeEnum == GenericActivateEnum.ativaShoot && gun != null)
             StartCoroutine(TutorialController.Activate(txt_shoot));
-        }
+
         else if (activeEnum == GenericActivateEnum.ativaJump) { }
+
         else if (activeEnum == GenericActivateEnum.ativaDash)
-            player.canDash = true;
-        else 
+            StartCoroutine(TutorialController.Activate(txt_dash));
+        
+        else
             Debug.LogWarning("Valor não esperado no enum: " + activeEnum);
     }
 }

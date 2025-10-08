@@ -91,7 +91,7 @@ public class MenuPause : MonoBehaviour
         {
             onPause = !onPause;
             player.canDash = !player.canDash;
-            if(gun.currentGun.passedTutorial)
+            if(gun.currentGun.canShoot)
                 gun.currentGun.canShoot = !gun.currentGun.canShoot;
             timeChange();
             SetPauseMenuVisibility(isPaused);
@@ -169,7 +169,7 @@ public class MenuPause : MonoBehaviour
         timeChange();
         toggle_cursor();/*se no futuro não funcionar, use isto: Cursor.lockState = CursorLockMode.Locked;Cursor.visible = false;*/
         player.canDash = !player.canDash;
-        if (gun.currentGun.passedTutorial)
+        if (gun.currentGun.isTimeToShoot && !gun.reloading)
             gun.currentGun.canShoot = true;
     }
 

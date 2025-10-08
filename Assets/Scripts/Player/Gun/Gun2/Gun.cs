@@ -28,10 +28,9 @@ public class Gun : MonoBehaviour
     [Header("Animation")]
     public Animator animator;
 
-    public bool isTimeToShoot { get; set; } = false;
-    public bool passedTutorial { get; set; } = false;  // Progressão no tutorial
+    public bool isTimeToShoot { get; set; } = true;
     public bool canEquipShotgun { get; set; } = false; // Flag especial para desbloqueio de shotgun
-    public bool canShoot { get; set; } = false;
+    public bool canShoot { get; set; } = true; 
     
     private MenuPause menu;
     
@@ -39,28 +38,16 @@ public class Gun : MonoBehaviour
         // Inicializa referências
         gun = GameObject.FindObjectOfType<GunController>();
         menu = FindObjectOfType<MenuPause>();
-        passedTutorial = false;
-    }
-
-    private void OnEnable() {
-        if (passedTutorial) {
-            isTimeToShoot = true;
-            canShoot = true;
-        }
     }
 
     private void Start() {
         if (model == null) { model = this.gameObject; }
 
         // Configuração inicial
-        passedTutorial = false;
-        isTimeToShoot = false;
-        canShoot = false;//desativar se tiver tutorial
         isTimeToShoot = true;
-        
         getGun.ammunition = getGun.maximumAmmo;
 
-        player = GameObject.FindObjectOfType<PlayerStateManager>();
+        player = FindObjectOfType<PlayerStateManager>();
     }
 
     private void Update() {
@@ -98,3 +85,14 @@ public class Gun : MonoBehaviour
         isTimeToShoot = true;  
     }
 }
+
+/*Tutorial withouth canShoot initialy
+       public bool passedTutorial { get; set; } = false;  // Progressão no tutorial
+       public bool isTimeToShoot { get; set; } = false;
+       public bool canShoot { get; set; } = false; 
+       private void OnEnable() {
+        if (passedTutorial) {
+            isTimeToShoot = true;
+            canShoot = true;
+        }
+    }*/
