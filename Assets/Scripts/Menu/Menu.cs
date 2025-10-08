@@ -188,7 +188,7 @@ public class Menu : MonoBehaviour
     private IEnumerator CarregarCena()
     {
         async = SceneManager.LoadSceneAsync("Parte1");
-        
+
         async.allowSceneActivation = true;
 
         this.pressedAnyButton = false;
