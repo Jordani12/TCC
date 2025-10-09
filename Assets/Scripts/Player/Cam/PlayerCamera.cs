@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public bool ShakeDir = false;
+    bool ShakeDir = false;
     public float shakeSpeed = 3f;
 
 
@@ -141,7 +141,7 @@ public class PlayerCamera : MonoBehaviour
         ShakeDir = ShakingShakira(a);
     }
 
-    bool ShakingShakira(float height = 0)
+    private bool ShakingShakira(float height = 0)
     {
         Vector3 pos = transform.position;
         Vector3 parent = transform.parent.position;
