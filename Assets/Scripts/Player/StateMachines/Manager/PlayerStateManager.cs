@@ -31,7 +31,7 @@ public class PlayerStateManager : MonoBehaviour
     public bool isMoving { get; set; } = false;
     public bool isGrounded { get; private set; }
     public bool canDash { get; set; } = true;
-    public bool canMove { get; set; } = true;
+    public bool canMove { get; set; } = false;
     public bool isOnRamp { get; private set; }
     public bool IsMoving { get; private set; }
 
@@ -54,7 +54,7 @@ public class PlayerStateManager : MonoBehaviour
     void Start()
     { 
         //valores iniciais padrão
-        canMove = true; 
+        canMove = false; 
         canDash = true;
     }
 

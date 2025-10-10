@@ -54,8 +54,6 @@ public class MenuPause : MonoBehaviour
 
         StartCoroutine(activate_canvas());
         canvas_group();
-
-        can_change_canvas = true;
     }
 
     private IEnumerator activate_canvas()
