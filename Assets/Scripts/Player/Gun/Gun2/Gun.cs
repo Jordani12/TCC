@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
 
     public bool isTimeToShoot { get; set; } = true;
     public bool canEquipShotgun { get; set; } = false; // Flag especial para desbloqueio de shotgun
-    public bool canShoot { get; set; } = true; 
+    public bool canShoot { get; set; } = false; 
     
     private MenuPause menu;
     

@@ -18,6 +18,7 @@ public class PlayerCamera : MonoBehaviour
     [HideInInspector] public bool isAiming = false;
     private Recoil recoil;
     private PlayerStateManager playerState;
+    private EntryAnim entryAnim;
     private bool isWalking;
     private bool onGround;
 
@@ -34,6 +35,7 @@ public class PlayerCamera : MonoBehaviour
         canMoveCam = true;
         recoil = GameObject.FindObjectOfType<Recoil>();
         playerState = GameObject.FindObjectOfType<PlayerStateManager>();
+        entryAnim = FindObjectOfType<EntryAnim>();
 
         if (inputs != null) atribuate_values();
     }
@@ -72,8 +74,9 @@ public class PlayerCamera : MonoBehaviour
         else if (transform.position.y <= minHeight)
             toward = true;
 
-        if (canMoveCam)
-            LogicCam(isAiming);
+        if(!entryAnim.onEntryAnimation)
+            if (canMoveCam)
+                LogicCam(isAiming);
 
         if (playerState != null) { isWalking = playerState.isMoving; onGround = playerState.isGrounded; }
 
