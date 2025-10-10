@@ -18,7 +18,7 @@ public class PlayerCamera : MonoBehaviour
     [HideInInspector] public bool isAiming = false;
     private Recoil recoil;
     private PlayerStateManager playerState;
-    private EntryAnim entryAnim;
+    private Animations [] cam_anim;
     private bool isWalking;
     private bool onGround;
 
@@ -35,7 +35,7 @@ public class PlayerCamera : MonoBehaviour
         canMoveCam = true;
         recoil = GameObject.FindObjectOfType<Recoil>();
         playerState = GameObject.FindObjectOfType<PlayerStateManager>();
-        entryAnim = FindObjectOfType<EntryAnim>();
+        cam_anim = FindObjectsOfType<Animations>();
 
         if (inputs != null) atribuate_values();
     }
@@ -74,7 +74,7 @@ public class PlayerCamera : MonoBehaviour
         else if (transform.position.y <= minHeight)
             toward = true;
 
-        if(!entryAnim.onEntryAnimation)
+        if(!IsOnAnimation())
             if (canMoveCam)
                 LogicCam(isAiming);
 
@@ -84,8 +84,22 @@ public class PlayerCamera : MonoBehaviour
 
         ShakeUpdate();
     }
+    
+    private bool IsOnAnimation()
+    {
+        if (cam_anim == null ||  cam_anim.Length == 0) return false;
+            
+        foreach(Animations cam  in cam_anim)
+        {
+            if (cam.onAnimation)
+               return true;
+        }
+
+        return false;
+    }
 
     private void LogicCam(bool isAiming){
+
         if(player != null)
         {
             float mouseX, mouseY;

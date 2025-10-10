@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntryAnim : MonoBehaviour
+public class Animations : MonoBehaviour
 {
-    public bool onEntryAnimation { get; private set; } = true;
+    [SerializeField] private WhichAnim whichAnim;
 
     public List<GameObject> objects = new List<GameObject>();
 
+    [Header("Animator")]
     public Animator anim;
+    public bool onAnimation { get; private set; } = false;
 
     private PlayerStateManager player;
 
@@ -22,9 +24,31 @@ public class EntryAnim : MonoBehaviour
 
     private void Start()
     {
-        anim.Play("entry_anim", 0, 0f);
+        if (whichAnim == WhichAnim.None)
+        {
+            onAnimation = true;
+            anim.Play("entry_anim", 0, 0f);
+        }
 
         MenuPause.can_change_canvas = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            onAnimation = true;
+            DesactivateObjects();
+            CheckTypeAnim();
+        }
+    }
+
+    private void CheckTypeAnim()
+    {
+        if(whichAnim == WhichAnim.DashTutAnim)
+        {
+            anim.Play("dash_anim", 0, 0f);
+        }
     }
 
     private void DesactivateObjects() 
@@ -36,7 +60,7 @@ public class EntryAnim : MonoBehaviour
 
     public void ActivateObjects()
     {
-        onEntryAnimation = false;
+        onAnimation = false;
 
         if (objects.Count == 0) return;
 
@@ -46,4 +70,10 @@ public class EntryAnim : MonoBehaviour
 
         MenuPause.can_change_canvas = true;
     }
+}
+
+public enum WhichAnim
+{
+    None,
+    DashTutAnim
 }
