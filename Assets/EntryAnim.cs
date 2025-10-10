@@ -10,7 +10,7 @@ public class EntryAnim : MonoBehaviour
 
     public Animator anim;
 
-    PlayerStateManager player;
+    private PlayerStateManager player;
 
     private void Awake()
     {
@@ -31,13 +31,7 @@ public class EntryAnim : MonoBehaviour
     {
         if (objects.Count == 0) return;
 
-        foreach (GameObject obj in objects)
-        {
-            if (obj.activeInHierarchy)
-            {
-                obj.SetActive(false);
-            }
-        }
+        objects.ForEach(obj => obj.SetActive(false));
     }
 
     public void ActivateObjects()
@@ -45,14 +39,8 @@ public class EntryAnim : MonoBehaviour
         onEntryAnimation = false;
 
         if (objects.Count == 0) return;
-        
-        foreach(GameObject obj in objects)
-        {
-            if(obj != null)
-            {
-                obj.SetActive(true);
-            }
-        }
+
+        objects.ForEach(obj => obj.SetActive(true));
 
         if (player != null) player.canMove = true;
 
