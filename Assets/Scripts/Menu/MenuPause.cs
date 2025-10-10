@@ -59,10 +59,9 @@ public class MenuPause : MonoBehaviour
     private IEnumerator activate_canvas()
     {
         yield return null;
-        if (mainCanvas != null || pauseCanvas != null)
+        if (pauseCanvas != null)
         {
             activateButtons();
-            mainCanvas.SetActive(true);
             pauseCanvas.SetActive(false);
         }
     }
