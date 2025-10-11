@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Animations : MonoBehaviour
 {
@@ -16,21 +17,28 @@ public class Animations : MonoBehaviour
 
     private void Awake()
     {
-        DesactivateObjects();
+        //DesactivateObjects();
 
         player = FindObjectOfType<PlayerStateManager>();
-        if (player != null) player.canMove = false;
+        //if (player != null) player.canMove = false;
     }
 
     private void Start()
     {
-        if (whichAnim == WhichAnim.None)
+        /*if (whichAnim == WhichAnim.None)
         {
             onAnimation = true;
             anim.Play("entry_anim", 0, 0f);
         }
 
-        MenuPause.can_change_canvas = false;
+        MenuPause.can_change_canvas = false;*/
+
+        Gun gun = FindObjectOfType<Gun>();
+
+        if (player != null) player.canMove = true;
+        if (gun != null) gun.canShoot = true;
+
+        MenuPause.can_change_canvas = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -66,7 +74,17 @@ public class Animations : MonoBehaviour
 
         objects.ForEach(obj => obj.SetActive(true));
 
-        if (player != null) player.canMove = true;
+        HabilitateMecanics();
+
+        if (whichAnim != WhichAnim.None) Destroy(gameObject);
+    }
+
+    private void HabilitateMecanics()
+    {
+        Gun gun = FindObjectOfType<Gun>();
+
+        if(player != null) player.canMove = true;
+        if(gun != null) gun.canShoot = true;
 
         MenuPause.can_change_canvas = true;
     }
