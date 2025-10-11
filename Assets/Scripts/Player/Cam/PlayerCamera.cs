@@ -68,7 +68,6 @@ public class PlayerCamera : MonoBehaviour
     }
 
     void Update(){
-
         if (transform.position.y >= maxHeight)
             toward = false;
         else if (transform.position.y <= minHeight)
@@ -100,6 +99,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void LogicCam(bool isAiming){
 
+        Debug.Log("Can move");
         if(player != null)
         {
             float mouseX, mouseY;
